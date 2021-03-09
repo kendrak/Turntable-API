@@ -1,4 +1,10 @@
-#Turntable API
+# Turntable API
+
+-----
+
+Join us on Discord https://discord.gg/4AA2DqWpVc
+
+-----
 
 A simple nodejs wrapper for the turntable API.
 You'll need to find your `AUTH`, `USERID` and `ROOMID` information with [this bookmarklet](http://alaingilbert.github.com/Turntable-API/bookmarklet.html).
@@ -8,7 +14,10 @@ Ttapi is also available in [Python](https://github.com/alaingilbert/Turntable-AP
 See also [turntabler](https://github.com/obrie/turntabler) (Ruby) maintained by [obrie](https://github.com/obrie).
 
 ## Installation
-    npm install ttapi
+
+```bash
+npm install ttapi
+```
 
 ## Examples
 
@@ -50,7 +59,7 @@ bot.on('registered',   function (data) { console.log('Someone registered', data)
 
 ### Dynamic bot
 
-[REPL](http://nodejs.org/docs/v0.6.0/api/repl.html) allows you to dynamically call the bot functions and modify his variables during his execution.
+[REPL](https://nodejs.org/docs/latest-v14.x/api/repl.html) allows you to dynamically call the bot functions and modify his variables during his execution.
 
 ```js
 var Bot  = require('ttapi')
@@ -236,7 +245,8 @@ Get a directory of rooms.
 
 * `limit` - The number of rooms to return
 * `section_aware`
-* `sort` - What to sort by
+* `sort` - What to sort by,
+* `skip` - The number of rooms to skip
 
 ### stalk ( userId:string [, allInformation=false:bool ], callback:fn )
 
@@ -360,6 +370,10 @@ bot.getUserId('@alain_gilbert', function (data) { console.log(data); });
 // { msgid: 12, userid: '4deadb0f4fe7d013dc0555f1', success: true }
 
 ```
+
+### getPresence ( [[userId:string, ]callback:fn] )
+
+Get presence for the specified user, or your presence if a userid is not specified.
 
 ### getProfile ( [[userId:string, ]callback:fn] )
 
